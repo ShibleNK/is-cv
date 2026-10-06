@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edge Detection Results</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-800 antialiased">
+    <div class="mx-auto max-w-5xl px-4 py-12">
+        <h1 class="mb-10 text-center text-3xl font-semibold tracking-tight text-slate-900">
+            Edge Detection Results
+        </h1>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <figure>
+                <figcaption class="mb-3 text-center text-lg font-medium text-slate-700">Original image</figcaption>
+                <img src="{{ url_for('static', filename=original_image) }}" alt="Original image"
+                     class="mx-auto block h-auto max-w-full rounded-lg border border-slate-200 bg-white shadow-sm">
+            </figure>
+
+            <figure>
+                <figcaption class="mb-3 text-center text-lg font-medium text-slate-700">Sobel</figcaption>
+                <img src="{{ url_for('static', filename=sobel_image) }}" alt="Sobel"
+                     class="mx-auto block h-auto max-w-full rounded-lg border border-slate-200 bg-white shadow-sm">
+            </figure>
+
+            <figure>
+                <figcaption class="mb-3 text-center text-lg font-medium text-slate-700">Canny edges</figcaption>
+                <img src="{{ url_for('static', filename=edges_image) }}" alt="Canny edges"
+                     class="mx-auto block h-auto max-w-full rounded-lg border border-slate-200 bg-white shadow-sm">
+            </figure>
+        </div>
+
+        <div class="mt-10 text-center">
+            <a href="{{ url_for('upload_image') }}"
+               class="inline-block rounded-md bg-slate-700 px-5 py-2.5 text-sm font-medium text-white transition
+                      hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2">
+                Process another image
+            </a>
+        </div>
+    </div>
+</body>
+</html>
